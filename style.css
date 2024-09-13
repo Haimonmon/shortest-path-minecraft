@@ -1,0 +1,126 @@
+body {
+  font-family: 'Minecraftia',sans-serif;
+  margin: 0;
+  background-color: #0B0C0E;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/image/minecraft-bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.5;
+  z-index: -1; 
+}
+
+header {
+ width: 40rem;
+ display: flex;
+ justify-content: center;
+}
+
+header img {
+  width: 620px;
+  position: absolute;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1) rotate(-13deg);
+  }
+  50% {
+      transform: scale(1.02) rotate(-13deg);
+  }
+  100% {
+      transform: scale(1) rotate(-13deg);
+  }
+}
+
+header p {
+  position: relative;
+  top: 160px;
+  left: 360px;
+  color: #F1F50B;
+  transform: rotate(-13deg);
+  font-size: 1.2rem;
+  animation: heartbeat 1.5s infinite;
+}
+
+main {
+  position: absolute;
+  top: 320px;
+}
+
+#start-button, #info-button {
+  border: 3px solid black;
+  cursor: pointer;
+  font-size: 20px;
+  height: 80px;
+  width: 380px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-family: 'Minecraftia';
+  font-size: 1.1rem;
+}
+
+#start-button {
+  color: #FFF4F4;
+  background-color: #418A2E;
+}
+
+#info-button {
+  color: #4C4C4C;
+  background-color: #C6C6C6;
+}
+
+#grid-sizes {
+  border: 3px solid black;
+  appearance: none;
+  text-align: center;
+  color: #4C4C4C;
+  background-color: #C6C6C6;
+  padding: 5px;
+  height: 80px;
+  width: 380px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-family: 'Minecraftia', sans-serif;
+  outline: none;
+  border-radius: 0;
+}
+
+.dropdown {
+  border-radius: 0;
+  position: relative;
+}
+
+.custom-arrow {
+  position: absolute;
+  border-top: 3px solid black;
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: #A6A1A1;
+  pointer-events: none;
+  height: 74px;
+  width: 4.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-arrow img {
+  width: 40px;
+  transform: rotate(90deg);
+}

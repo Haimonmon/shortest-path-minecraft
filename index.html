@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <!-- will submit on github :D -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
+    <title>BFS</title>
+</head>
+<body>
+    <header>
+        <img src="./assets/image/imgbin_minecraft-png.png" alt="Minecraft Famous Word logo">
+        <p>Breadth First Search</p>
+    </header>
+    <main>
+        <button id="start-button">Start</button>
+        <div class="dropdown">
+            <select name="dropdown-grid-size" id="grid-sizes">
+                <option value="10x10">10x10</option>
+                <option value="8x8">8x8</option>
+                <option value="7x7">7x7</option>
+                <option value="5x5">5x5</option>
+            </select>
+            <span class="custom-arrow">
+                <img src="./assets/image/play.png" alt="dropdown arrow">
+            </span>
+        </div>
+        <button id="info-button">Info</button>
+        <audio src="./assets/sound/Minecraft - Buttonplate Click (Sound Eff.mp3" id="minecraft-click-sound"></audio>
+        <script>
+            const startButton = document.getElementById('start-button')
+            const infoButton = document.getElementById('info-button')
+            const gridSizesButton = document.getElementById('grid-sizes')
+
+            const clickSound = document.getElementById('minecraft-click-sound')
+
+            startButton.addEventListener('click', () => {
+                clickSound.play();
+                setTimeout(() => {
+                    window.location.href = "grid.html";
+                },600)
+            });
+
+            infoButton.addEventListener('click', () => {
+                clickSound.play();
+            });
+
+            gridSizesButton.addEventListener('click', () => {
+                clickSound.play();
+            });
+
+            document.getElementById('start-button').addEventListener('click', () => {
+                const gridSize = document.getElementById('grid-sizes').value;
+
+                //Storing the gridSize data before going on the next html page :)
+                localStorage.setItem('gridSize', gridSize);
+            });
+
+        </script>
+    </main>
+    <script type="module" src="./breadthFirstSearch.js"></script>
+</body>
+</html>

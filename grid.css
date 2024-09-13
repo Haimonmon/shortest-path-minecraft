@@ -1,0 +1,205 @@
+body {
+    font-family: 'Minecraftia',sans-serif;
+    margin: 0;
+    background-color: #0B0C0E;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(./assets/image/minecraft-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    z-index: -1; 
+}
+ 
+.selected-grid-size-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.selected-grid-size-container img {
+    width: 47px;
+}
+
+.grid-container {
+    border: 1px solid rgb(47, 41, 29); 
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    max-width: 90%;
+    gap: 1px;
+    width: 400px;
+    height: 400px;
+    justify-content: center;
+    background-color: #222110;
+}
+
+.status-containers {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-right: 3%;
+}
+
+.status img {
+    width: 40px;
+}
+
+.status {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    font-size: 1.3rem;
+    color: white;
+}
+
+.selected-grid-size-container {
+    width: 230px;
+    height: 75px;
+    background-color: #28292A;
+    border: 6px solid #5A5B5A;
+}
+
+.grid-data-container {
+    width: 230px;
+    height: 300px;
+    background-color: #28292A;
+    border: 6px solid #5A5B5A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#died-mob-killcount img {
+    width: 35px;
+}
+
+#letsgo {
+    width: 245px;
+    height: 80px;
+    background-color: #418A2E;
+    color: white;
+    font-family: 'Minecraftia';
+    border: 3.5px solid #000000;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+  
+.grid-item { 
+    border: .5px solid #222110;
+    font-size: 24px; 
+}
+
+.path,
+.wall,
+.start,
+.end {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.path {
+    background-image: url(./assets/blocks/BLOCK-Grassblock.jpg);
+    opacity: 75%;
+}
+  
+.wall {
+    background-image: url(./assets/blocks/BLOCK-Woodblock.jpg);
+}
+
+.start {
+    background-image: url(./assets/mobs/MOB-Zombie.jpg);
+}
+
+.trail {
+    background-color: lightgreen;
+}
+
+.end {
+    background-image: url(./assets/mobs/MOB-Villager.png);
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin-left: 7%;
+    
+}
+
+#start-btn,
+#end-btn,
+#wall-btn,
+#exit {
+    height: 50px;
+    width: 50px;
+    background-color: rgba(76, 76, 76, 0.5);
+    opacity: 90%;
+    gap: 2px;
+    border: 6px solid #5A5B5A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav p {
+    color: white;
+}
+
+.inventory-container {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+
+#exit-btn-container {
+    margin-top: 20px;
+    
+}
+
+
+#start-btn img,
+#end-btn img {
+    height: 40px;
+    width: 40px;
+}
+
+#wall-btn img,
+#exit img {
+    width: 35px;
+}
+
+#start-btn:hover,
+#end-btn:hover,
+#wall-btn:hover {
+    border: 6px solid white;
+}
+
+#start-btn:focus {
+    border: 6px solid white;
+}
+
+#exit-btn-container p {
+    color: #FF8A01;
+}

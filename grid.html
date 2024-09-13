@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
+    <link rel="stylesheet" href="grid.css">
+    <title>Meow</title>
+</head>
+<body>
+
+    <div class="status-containers">
+        <div class="selected-grid-size-container">
+            <img src="./assets/image/Help-Icon-removebg-preview.png" alt="">
+            <span id="grid-size-text">8x8</span>
+        </div>
+        <div class="grid-data-container">
+
+            <div class="status">
+                <img src="./assets/image/BLOCK-Steps-Icon.jpg" alt="">
+                <span id="step-count">0</span>
+            </div>
+            <div class="status" id="inventory-item">
+                <img src="./assets/image/BLOCK-Inventory-Icon.jpg" alt="">
+                <p>4</p>
+            </div>
+            <div class="status" id="died-mob-killcount">
+                <img src="./assets/image/MOB-Die-icon.png" alt="">
+                <p>0</p>
+            </div>
+        </div>
+        <button id="letsgo">Simulate!</button>
+
+    </div>
+
+    <audio src="./assets/sound/Minecraft - Buttonplate Click (Sound Eff.mp3" id="minecraft-click-sound"></audio>
+
+    <div class="grid-container"></div>
+    <script type="module" src="./displayHTMLGrid.js"></script>
+
+    <nav>
+        <div class="inventory-container">
+            <div id="start-btn">
+                <img src="./assets/image/Zombie_Spawn_Egg_JE2_BE1.webp" alt="">
+            </div>
+            <p>Start</p>
+        </div>
+
+        <div class="inventory-container">
+            <div id="end-btn">
+                <img src="./assets/image/Villager_spawn_egg.webp" alt="">
+            </div>
+            <p>End</p>
+        </div>
+      
+        
+        <div class="inventory-container">
+            <div id="wall-btn">
+                <img src="./assets/blocks/BLOCK-Woodblock.jpg" alt="">
+            </div>
+            <p>Wall</p>
+        </div>
+        
+        <div class="inventory-container" id="exit-btn-container">
+            <div id="exit">
+                <img src="./assets/image/BLOCK-Exit-Icon.jpg" alt="">
+            </div>
+            <p>Exit</p>
+        </div>
+        <script>
+            const exit = document.getElementById('exit-btn-container')
+            const startAnimationButton = document.getElementById('letsgo')
+
+            const clickSound = document.getElementById('minecraft-click-sound')
+
+            exit.addEventListener('click', () => {
+                clickSound.play();
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                },600)
+            });
+
+            startAnimationButton.addEventListener('click', () => {
+                clickSound.play()
+            })
+        </script>
+    </nav>
+   
+</body>
+</html>
