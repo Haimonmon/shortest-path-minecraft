@@ -172,6 +172,43 @@ nav p {
     gap: 28px;
 }
 
+#player-message {
+    height: 100px;
+    max-width: 300px;
+    background-color: rgba(76, 76, 76, 0.5);
+    border: 6px solid #5A5B5A;
+    display: flex;
+    align-items:  center;
+    justify-content: center;
+    gap: 5%;
+    color: white;
+    font-size: 1rem;
+}
+
+#player-tag {
+    background-color: rgba(35, 29, 29, 0.5);
+    height: 40px;
+    margin-bottom: 10px;
+    gap: 5%;
+}
+
+#player-tag p {
+    margin-left: 5%;
+}
+
+#joined-message {
+    color: #d6dd15;
+    width: 260px;
+}
+
+#player-message img {
+    width: 50px;
+    margin-left: 5%;
+}
+
+#player-container {
+    margin-bottom: 10%;
+}
 
 #exit-btn-container {
     margin-top: 20px;

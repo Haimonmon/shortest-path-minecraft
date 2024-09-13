@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
     <link rel="stylesheet" href="grid.css">
-    <title>Meow</title>
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <title>Minecraft</title>
 </head>
 <body>
 
@@ -36,9 +37,22 @@
     <audio src="./assets/sound/Minecraft - Buttonplate Click (Sound Eff.mp3" id="minecraft-click-sound"></audio>
 
     <div class="grid-container"></div>
+    
     <script type="module" src="./displayHTMLGrid.js"></script>
 
     <nav>
+        <div class="inventory-container" id="player-tag">
+            <p>Bunnzz27</p> <span id="joined-message">Joined The game</span>
+        </div>
+
+        <div class="inventory-container" id="player-container">
+            <div id="player-message">
+                <img src="./assets/image/PLAYER-EAD.png" alt="">
+                <span id="message">Choose items below and place it on the grid.</span>
+            </div>
+           
+        </div>
+
         <div class="inventory-container">
             <div id="start-btn">
                 <img src="./assets/image/Zombie_Spawn_Egg_JE2_BE1.webp" alt="">
@@ -71,13 +85,21 @@
             const exit = document.getElementById('exit-btn-container')
             const startAnimationButton = document.getElementById('letsgo')
 
+            const playerMessage = document.getElementById('message')
+            const leaveMessage = document.getElementById('joined-message')
+
             const clickSound = document.getElementById('minecraft-click-sound')
 
             exit.addEventListener('click', () => {
                 clickSound.play();
+                playerMessage.textContent = 'Goodbye then!'
+
+                setTimeout(() => {
+                    leaveMessage.textContent = 'Left The game'
+                },100)
                 setTimeout(() => {
                     window.location.href = "index.html";
-                },600)
+                },1300)
             });
 
             startAnimationButton.addEventListener('click', () => {

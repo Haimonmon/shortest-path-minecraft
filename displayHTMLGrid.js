@@ -13,6 +13,12 @@ const convertGridNum = (gridSize) => {
     }
 }
 
+const playerMessage = document.getElementById('message')
+const joinedMessage = document.getElementById('joined-message')
+
+setTimeout(() => {
+    joinedMessage.textContent = ''
+},1500)
 let currentMode = 'end'; // Your holding block to place 
 
 let startCoordinates;
@@ -35,6 +41,11 @@ const handleGridItemClick = (event) => {
 
     // ? Dont mind the floods of if else 💀👌
     if (currentMode === 'start') {
+        if (gridItem.classList.contains('wall')) {
+            playerMessage.textContent = 'You cant place that starting point there.'
+            return
+        };
+
         const previousStart = document.querySelector('.start');
         if (previousStart) {
             previousStart.classList.remove('start');
@@ -54,6 +65,11 @@ const handleGridItemClick = (event) => {
         startCoordinates = [parseInt(row),parseInt(column)]
 
     } else if (currentMode === 'end') {
+        if (gridItem.classList.contains('wall')) {
+            playerMessage.textContent = 'You cant place that end point there.'
+            return;
+        };
+
         const previousEnd = document.querySelector('.end')
         if (previousEnd) {
             previousEnd.classList.remove('end')
@@ -147,8 +163,25 @@ const removePreviousTrails = () => {
 
 const count = document.getElementById('step-count')
 
+let makulitKa = 0;
+
 document.querySelector('#letsgo').addEventListener('click', () => {
     animationInProgress = true
+
+    
+
+    if (makulitKa === 3 && !startCoordinates && !endCoordinates) {
+        playerMessage.textContent = 'Boi ang kulit mo pumili ka nalang sa baba.'
+        animationInProgress = false
+        return
+    }
+
+    if (!startCoordinates && !endCoordinates) {
+        playerMessage.textContent = 'Choose items on the inventory then place it on the grid.';
+        makulitKa++;
+        animationInProgress = false
+        return
+    }
 
     let stepCount = 1;
 
@@ -158,20 +191,19 @@ document.querySelector('#letsgo').addEventListener('click', () => {
 
         const shortestPath = breadthFirstSearch(grid2DCreated)
 
-        let delay = 300
+        let delay = 500
 
         
         if (!shortestPath || (startCoordinates === endCoordinates)) {
             animationInProgress = false
             console.log('Bruh no path find :<')
+            playerMessage.textContent = 'He cant find the path bud.'
             return
         }
     
         shortestPath.forEach((pathCoordinates, index) => {
             
-            
-            
-
+            playerMessage.textContent = '🍿 Its starting!. '
             // Skip the first step to avoid duplications of the head
             if (index === 0) {
                 return;
@@ -197,6 +229,7 @@ document.querySelector('#letsgo').addEventListener('click', () => {
                     currentGridCell.classList.remove('end')
                     animationInProgress = false
                     console.log(animationInProgress)
+                     playerMessage.textContent = `Its finished!, it takes ${stepCount} blocks to end.`
                     startCoordinates = pathCoordinates;
                 }
             },index * delay)
@@ -205,6 +238,7 @@ document.querySelector('#letsgo').addEventListener('click', () => {
     } catch(e) {
         animationInProgress = false
         console.log('Bruh no path find :<')
+        playerMessage.textContent = 'He cant find the path bud.'
         return
     }    
 })
